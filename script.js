@@ -85,7 +85,7 @@ $(document).ready(function () {
         });
     };
     function printUV() {
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
         console.log(lat);
         $.ajax({
