@@ -25,6 +25,7 @@ $(document).ready(function () {
             $("#cities").append(newCity);
         }
     }
+    
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
 
@@ -84,6 +85,7 @@ $(document).ready(function () {
 
         });
     };
+
     function printUV() {
         var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
@@ -97,10 +99,12 @@ $(document).ready(function () {
         })
 
     }
+
     function clear() {
         $("#cities").empty();
         
     }
+
 
     addCity();
     $(document).on("click", ".city", forecasts);
