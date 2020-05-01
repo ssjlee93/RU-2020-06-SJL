@@ -61,7 +61,7 @@ $(document).ready(function () {
                 var date = new Date(dateUnix).toLocaleDateString("en-US");
                 var iconCode = response.list[i].weather[0].icon;
                 var iconAlt = response.list[i].weather[0].description;
-                var iconURL = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+                var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
                 temps.push(temperature);
                 hums.push(humidity);
                 dates.push(date);
