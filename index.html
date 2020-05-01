@@ -10,7 +10,6 @@
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/70b95019d0.js" crossorigin="anonymous"></script>
 
 </head>
@@ -21,78 +20,85 @@
     </header>
     <div class="container">
         <div class="row mt-1">
-            <div id="cities" class="col-md-3">
+            <div class="col-lg-3 citySearch">
                 <h5> Search for a City: </h5>
                 <div class="input-group w-75 mb-3">
-                    <input type="text" class="form-control" placeholder="City" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
+                    <input type="text" id="search" class="form-control" placeholder="City" aria-label="City"
+                        aria-describedby="search">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="button-addon2"><i
-                                class="fas fa-search"></i></button>
+                        <button class="btn btn-primary" type="button" id="searchBtn">
+                            <i class="fas fa-search"></i></button>
                     </div>
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-action">Austin</li>
+                <ul id="cities" class="list-group">
+
                 </ul>
                 <hr>
+                <button class="btn btn-outline-primary mx-auto" style="width: 250px;" type="button" id="clearBtn">
+                    <i class="far fa-trash-alt"></i> Clear cities</button>
             </div>
 
-            <div id="today" class="col-md-9">
+            <div id="Forecast" class="col-lg-9">
 
-                <div class="card my-2">
+                <div class="card my-3 py-3">
                     <div class="card-body">
-                        <h3 class="card-title">Special title treatment</h3>
-                        <p class="card-text">Temperature:</p>
-                        <p class="card-text">Humidity: </p>
-                        <p class="card-text">Humidity: </p>
-                        <p class="card-text">Humidity: </p>
+                        <!-- d = date
+                        i = icon
+                        t = temperature
+                        h = humidity
+                        w = wind speed
+                        uv = UV index  -->
+                        <h3 class="card-title"><span id="cityName">City name</span> (<span class="d">Date</span>) <img class="i"></h3>
+                        <p class="card-text">Temperature: <span class="t"></span>°F</p>
+                        <p class="card-text">Humidity: <span class="h"></span>%</p>
+                        <p class="card-text">Wind Speed: <span class="w"></span> Mph</p>
+                        <p class="card-text">UV Index: <span class="text-white bg-danger p-2 uv"></span></p>
                     </div>
                 </div>
-                <br>
                 <h3>5-Day Forecast</h3>
                 <div class="card-group">
                     <div class="card bg-primary text-white mr-3">
                         <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">icon</p>
-                            <p> Temp: </p>
-                            <p> Humidity: </p>
+                            <h5 class="card-title"><span class="d"></span></h5>
+                            <p class="card-text"><img class="i"></p>
+                            <p> Temp: <span class="t"></span>°F</p>
+                            <p> Humidity: <span class="h"></span>%</p>
                         </div>
                     </div>
 
                     <div class="card bg-primary text-white mr-3">
                         <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">icon</p>
-                            <p> Temp: </p>
-                            <p> Humidity: </p>
+                            <h5 class="card-title"><span class="d"></span></h5>
+                            <p class="card-text"><img class="i"></p>
+                            <p class="card-text"> Temp: <span class="t"></span>°F</p>
+                            <p class="card-text"> Humidity: <span class="h"></span>%</p>
                         </div>
                     </div>
 
                     <div class="card bg-primary text-white mr-3">
                         <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">icon</p>
-                            <p> Temp: </p>
-                            <p> Humidity: </p>
+                            <h5 class="card-title"><span class="d"></span></h5>
+                            <p class="card-text"><img class="i"></p>
+                            <p class="card-text"> Temp: <span class="t"></span>°F</p>
+                            <p class="card-text"> Humidity: <span class="h"></span>%</p>
                         </div>
                     </div>
 
                     <div class="card bg-primary text-white mr-3">
                         <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">icon</p>
-                            <p> Temp: </p>
-                            <p> Humidity: </p>
+                            <h5 class="card-title"><span class="d"></span></h5>
+                            <p class="card-text"><img class="i"></p>
+                            <p class="card-text"> Temp: <span class="t"></span>°F</p>
+                            <p class="card-text"> Humidity: <span class="h"></span>%</p>
                         </div>
                     </div>
 
                     <div class="card bg-primary text-white mr-3">
                         <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">icon</p>
-                            <p> Temp: </p>
-                            <p> Humidity: </p>
+                            <h5 class="card-title"><span class="d"></span></h5>
+                            <p class="card-text"><img class="i"></p>
+                            <p class="card-text"> Temp: <span class="t"></span>°F</p>
+                            <p class="card-text"> Humidity: <span class="h"></span>%</p>
                         </div>
                     </div>
 
@@ -101,6 +107,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="./script.js"></script>
 
 </body>
 
