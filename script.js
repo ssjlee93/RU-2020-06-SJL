@@ -71,6 +71,7 @@ $(document).ready(function () {
                 i--;
 
             }
+            
             for (var i = 0; i < 6; i++) {
                 allt.eq(i).text(temps[i]);
                 allh.eq(i).text(hums[i]);
@@ -102,7 +103,9 @@ $(document).ready(function () {
 
     function clear() {
         $("#cities").empty();
+        cities = ["Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta"];
         
+        addCity();
     }
 
 
