@@ -6,7 +6,7 @@
 *             If a city name does not work, try lowercase names. 
 * Unsolved problem: Between 12am to 3am, the page will display same day twice. I wish I could fix this, but I could not think of a way. 
 
-![Screenshot of the project](/screenshot.png)
+![Screenshot of the project](/screenshot.PNG)
 
 Objective: make a 100% replica of the demo + some tweaks on my own. 
 
