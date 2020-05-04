@@ -16,14 +16,16 @@ $(document).ready(function () {
     var icons = [];
     var imgAlts = [];
 
-    function lastCities(){
-       if (localStorage.getItem("cities")===null){
-           cities = ["Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta"]
-       } else {
-           cities = JSON.parse(localStorage.getItem("cities"));
-         console.log(JSON.parse(localStorage["cities"]));
-       }
+    function lastCities() {
+        if (localStorage.getItem("cities") === null) {
+            cities = ["Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta"]
+        } else {
+            cities = JSON.parse(localStorage.getItem("cities"));
+            console.log(JSON.parse(localStorage["cities"]));
+        }
         addCity();
+
+        return;
     }
 
     function addCity() {
@@ -36,33 +38,40 @@ $(document).ready(function () {
             $("#cities").append(newCity);
         }
     }
-    
+
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
 
         var city = $("#search").val().trim();
         cities.push(city);
-        localStorage.setItem("cities",JSON.stringify(cities));
+        localStorage.setItem("cities", JSON.stringify(cities));
         console.log(localStorage.getItem("cities"))
         addCity();
 
         $("#search").val("");
     });
-    
+
     function cityForecast() {
         city = $(this).attr("data-city");
-        localStorage.setItem("city",city);
-        
+        localStorage.setItem("city", city);
+        temps = [];
+        hums = [];
+        dates = [];
+        icons = [];
+        imgAlts = [];
+
         forecasts();
     }
 
-    function lastForecast(){
+    function lastForecast() {
         city = localStorage.getItem("city")
         forecasts();
+
+        return;
     }
 
     function forecasts() {
-       
+
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIkey;
 
 
@@ -95,7 +104,7 @@ $(document).ready(function () {
                 i--;
 
             }
-            
+
             for (var i = 0; i < 6; i++) {
                 allt.eq(i).text(temps[i]);
                 allh.eq(i).text(hums[i]);
@@ -127,7 +136,7 @@ $(document).ready(function () {
     function clear() {
         $("#cities").empty();
         cities = ["Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta"];
-        
+
         addCity();
     }
 
