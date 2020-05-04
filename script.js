@@ -73,7 +73,7 @@ $(document).ready(function () {
     function forecasts() {
 
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIkey;
-
+        $(".uv").removeClass("bg-success bg-danger bg-warning");
 
         $.ajax({
             url: queryURL,
@@ -129,6 +129,13 @@ $(document).ready(function () {
         }).then(function (response) {
             $(".uv").text(response.value);
             console.log(response);
+            if (response.value < 3) {
+                $(".uv").addClass("bg-success");
+            } else if (response.value < 6) {
+                $(".uv").addClass("bg-warning");
+            } else {
+                $(".uv").addClass("bg-danger");
+            }
         })
 
     }
