@@ -3,6 +3,7 @@ $(document).ready(function () {
     var lat;
     var lon;
     var APIkey = "e1744359027cd03c7ab52626ecd3d11f";
+    var city;
 
     var allt = $("div.card").find("span.t");
     var allh = $("div.card").find("span.h");
@@ -14,6 +15,16 @@ $(document).ready(function () {
     var dates = [];
     var icons = [];
     var imgAlts = [];
+
+    function lastCities(){
+       if (localStorage.getItem("cities")===null){
+           cities = ["Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta"]
+       } else {
+           cities = JSON.parse(localStorage.getItem("cities"));
+         console.log(JSON.parse(localStorage["cities"]));
+       }
+        addCity();
+    }
 
     function addCity() {
         $("#cities").empty();
@@ -31,14 +42,27 @@ $(document).ready(function () {
 
         var city = $("#search").val().trim();
         cities.push(city);
-
+        localStorage.setItem("cities",JSON.stringify(cities));
+        console.log(localStorage.getItem("cities"))
         addCity();
 
         $("#search").val("");
     });
+    
+    function cityForecast() {
+        city = $(this).attr("data-city");
+        localStorage.setItem("city",city);
+        
+        forecasts();
+    }
+
+    function lastForecast(){
+        city = localStorage.getItem("city")
+        forecasts();
+    }
 
     function forecasts() {
-        var city = $(this).attr("data-city");
+       
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIkey;
 
 
@@ -90,7 +114,6 @@ $(document).ready(function () {
     function printUV() {
         var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
-        console.log(lat);
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -108,8 +131,9 @@ $(document).ready(function () {
         addCity();
     }
 
-
-    addCity();
-    $(document).on("click", ".city", forecasts);
+    console.log(localStorage)
+    lastForecast();
+    lastCities();
+    $(document).on("click", ".city", cityForecast);
     $("#clearBtn").on("click", clear);
 });
