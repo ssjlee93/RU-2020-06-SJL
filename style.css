@@ -3,7 +3,9 @@
     padding: 0;
     margin: 0;
 }
-
+body {
+    background-image: url("ACNH_Pattern_Wallpaper_[3840x2160].jpg");
+}
 header {
     font-family: 'Open Sans', sans-serif;
     font-size: 60px;
