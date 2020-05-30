@@ -1,4 +1,4 @@
-# randomname-2020-05-sjl-06
+# RU-2020-06-SJL
 
 ## JS homework 06 Server-Side APIs
 
